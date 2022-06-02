@@ -40,6 +40,18 @@
     <orderEntry type="library" scope="PROVIDED" name="activestorage (v7.0.3, RVM: ruby-3.1.1 [rails7]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v7.0.3, RVM: ruby-3.1.1 [rails7]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.8.0, RVM: ruby-3.1.1 [rails7]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-eventstream (v1.2.0, RVM: ruby-3.1.1 [rails7]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-partitions (v1.595.0, RVM: ruby-3.1.1 [rails7]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-record (v2.7.0, RVM: ruby-3.1.1 [rails7]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-core (v3.131.1, RVM: ruby-3.1.1 [rails7]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-dynamodb (v1.74.0, RVM: ruby-3.1.1 [rails7]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-kms (v1.57.0, RVM: ruby-3.1.1 [rails7]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-rails (v3.6.1, RVM: ruby-3.1.1 [rails7]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-s3 (v1.114.0, RVM: ruby-3.1.1 [rails7]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-ses (v1.47.0, RVM: ruby-3.1.1 [rails7]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sdk-sqs (v1.51.1, RVM: ruby-3.1.1 [rails7]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sessionstore-dynamodb (v2.0.1, RVM: ruby-3.1.1 [rails7]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="aws-sigv4 (v1.5.0, RVM: ruby-3.1.1 [rails7]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bindex (v0.8.1, RVM: ruby-3.1.1 [rails7]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.12.0, RVM: ruby-3.1.1 [rails7]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.4, RVM: ruby-3.1.1 [rails7]) [gem]" level="application" />
