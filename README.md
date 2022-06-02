@@ -2,12 +2,18 @@
 
 # LEAN EL README
 
-#### En el archivo *test/testerOpen.rb* está la sintaxis de como abrir un cliente para llamar a la base de datos del s3
+### Al final hice un proyecto python (django) que está en la carpeta aypmd se tienen que descargar/instalar las siguientes cosas:
+    * django
+    * aws para python (pip install boto3 'algo asi')
+    * pandas (pip install pandas)
+    * pyarrow (pip install pyarrow)
+    
 
-## TAREAS TODO LIST:
-    * crear clases que van a llamar los datos           [ ]
-    * llamar la data (limpia) que vamos a usar          [ ]
-    * elegir libreria para hacer graficos (lista abajo) [ ]
-    * definir las 5 metricas para las visualizaciones   [ ]
+
+
+### 1) Hay un archivo llamado *"aws_config.py"* que es el que tiene los init donde llamo al bucket y traigo la data, ahi la filtramos y empezamos a trabajar con los graficos y la pagina web
+
+### 2) Para iniciar el localhost de la pagina web tienes que pararte en AYPMD/aypmd y poner:
+    * python manage.py runserver
     
     
