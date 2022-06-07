@@ -13,5 +13,8 @@
 <body>
     <h1 class="titulo">Comparador</h1>
     <p> La comuna {{comuna1}} tiene un promedio de avaluo fiscal de : {{avgComuna1}} , en comparacion con la comuna {{comuna2}} que tiene un avaluo fiscal de : {{avgComuna2}} </p>
+    <form action="{% url 'busqueda' %}">
+      <input type="submit" value="Volver">  
+    </form>
 </body>
 </html> 
