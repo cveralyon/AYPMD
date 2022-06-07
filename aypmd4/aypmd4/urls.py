@@ -23,5 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('welcome/',welcome),
     path('homePage',homePage),
-    path('homePage',homePage, name='busqueda')
+    path('homePage',detalleVista, name='busqueda')
 ]

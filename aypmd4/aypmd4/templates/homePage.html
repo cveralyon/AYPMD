@@ -12,14 +12,15 @@
 </head>
 <body>
     <h1 class="titulo">Buscador precios predios</h1>
-    <form method="post" action='homePage/busqueda'>
+    <form action="{% url 'busqueda' %}">
+      {% csrf_token %}
         <div class="container">
             <div class="row">
               <div class="col">
-                <select class="form-select form-select-lg mb-2" aria-label=".form-select-lg example">
+                <select name="c" class="form-select form-select-lg mb-2" aria-label=".form-select-lg example">
                     <option disabled selected>Comuna</option>
                     {% for comuna in comunas %}
-                    <option>{{ comuna }}</li>
+                    <option name="comuna">{{ comuna }}</li>
                     {% endfor %}
                 </select>
               </div>
@@ -27,7 +28,7 @@
                 <select class="form-select form-select-lg mb-2" aria-label=".form-select-lg example">
                     <option disabled selected>Periodos</option>
                     {% for periodo in periodos %}
-                    <option>{{ periodo }}</li>
+                    <option name="periodo">{{ periodo }}</li>
                     {% endfor %}
                 </select>
               </div>
@@ -43,8 +44,11 @@
             </div>
         </div>
     </form>
-    {% for item in data[1:] %}
-      <h1>data[item][0]</h1>
+    {% for key, values in data.items %}
+      <h1>{{ key }}</h1>
+      {% for v in values %}
+      <td>{{v}}</td>
+      {% endfor %}
     {% endfor %}
 </body>
 </html>
