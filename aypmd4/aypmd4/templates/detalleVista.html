@@ -11,49 +11,7 @@
     <link type="text/css" href='{% static "css/estilo.css" %}'rel='stylesheet'/>
 </head>
 <body>
-    <h1 class="titulo">Buscador precios predios</h1>
-    <form action="{% url 'busqueda' %}">
-      {% csrf_token %}
-        <div class="container">
-            <div class="row">
-              <div class="col">
-                <select name="comuna" class="form-select form-select-lg mb-2" aria-label=".form-select-lg example">
-                    <option disabled selected>Comuna</option>
-                    {% for comuna in comunas %}
-                    <option>{{ comuna }}</li>
-                    {% endfor %}
-                </select>
-              </div>
-              <div class="col">
-                <select name="periodo" class="form-select form-select-lg mb-2" aria-label=".form-select-lg example">
-                    <option disabled selected>Periodos</option>
-                    {% for periodo in periodos %}
-                    <option>{{ periodo }}</li>
-                    {% endfor %}
-                </select>
-              </div>
-              <div class="col">
-                <select name="region" class="form-select form-select-lg mb-2" aria-label=".form-select-lg example">
-                  <option disabled selected>Region</option>
-                  {% for region in regiones %}
-                  <option>{{ region }}</li>
-                  {% endfor %}
-                </select>
-              </div>
-            <input type="submit" value="Buscar">  
-            </div>
-        </div>
-    </form>
-    {% for key, values in data.items %}
-    <div class="card border-success mb-3" style="max-width: 18rem;">
-      <div class="card-header bg-transparent border-success">Informacion</div>
-      <div class="card-body text-success">
-        <h5 class="card-title"></h5>
-        <p class="card-text">{{values}}.</p>
-      </div>
-      <div class="card-footer bg-transparent border-success">Avaluo fiscal: </div>
-      <div class="card-footer bg-transparent border-success">Periodo: </div>
-    </div>
-    {% endfor %}
+    <h1 class="titulo">Comparador</h1>
+    <p> La comuna {{comuna1}} tiene un promedio de avaluo fiscal de : , en comparacion con la comuna {{comuna2}} que tiene un avaluo fiscal de : </p>
 </body>
 </html> 

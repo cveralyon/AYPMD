@@ -59,4 +59,37 @@ def detalleVista(request):
     documento = template.render(contexto)
     return HttpResponse(documento)    
 
+
+def comparación(request):
+        
+    template =  "detalleVista.htlm"
+    try:
+        nombreComuna1 = request.GET["comuna1"]
+    except:
+        nombreComuna1 = ""
+
+    try:
+        nombreComuna2 = request.GET["comuna2"]
+    except:
+        nombreComuna2 = ""
+
+    
+    listaComunas = ["CURICO","LA REINA", "QUILPUE"] #cambiar
+    #listaPeriodos = ["2-2019", "1-2017", "1-2020"]
+    #istaRegiones = ["13", "14", "15"]
+    #query = type_of_filter.TypeOfFilter(nombreComuna,nombrePeriodo,nombreRegion)
+    #print(query)
+    #data = aws_config.AthenaQuery(query)
+    dir = os.path.join(BASE_DIR, 'aypmd4/templates/detalleVista.html')
+    plantillaHomePage = open(dir)
+    print("NOMBRES--")
+    #print(nombreComuna)
+    #print(nombrePeriodo)
+    template = Template(plantillaHomePage.read())
+    plantillaHomePage.close()
+    contexto = Context({"comuna1": nombreComuna1, "comuna2": nombreComuna2})
+    documento = template.render(contexto)
+    return HttpResponse(documento) 
+
+
    

@@ -7,3 +7,11 @@ body{
 
 }
 
+.wrapper {
+    text-align: center;
+}
+
+.buttonCentro {
+    position: absolute;
+    top: 50%;
+}
