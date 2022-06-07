@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from aypmd4.views import welcome
+from aypmd4.views import homePage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('welcome/',welcome)
+    path('welcome/',welcome),
+    path('homePage',homePage),
 ]
