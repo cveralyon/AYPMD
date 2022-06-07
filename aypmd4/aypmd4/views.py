@@ -39,7 +39,9 @@ def detalleVista(request):
     print(query)
     dir = os.path.join(BASE_DIR, 'aypmd4/templates/detalleVista.html')
     plantillaHomePage = open(dir)
-    
+    print("NOMBRES--")
+    print(nombreComuna)
+    print(nombrePeriodo)
     template = Template(plantillaHomePage.read())
     plantillaHomePage.close()
     contexto = Context({"comuna": nombreComuna, "periodo": nombrePeriodo})
