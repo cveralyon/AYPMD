@@ -22,8 +22,7 @@ from aypmd4.views import comparación
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('welcome/',welcome),
-    path('homePage',homePage),
+    path('',homePage),
     path('homePage/',detalleVista, name='busqueda'),
     path('detalleVista/',comparación, name='comparacion')
 ]
