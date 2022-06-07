@@ -12,23 +12,20 @@
 </head>
 <body>
     <h1 class="titulo">Buscador precios predios</h1>
-    <form method="post" action='homePage/busqueda'>
+    <form action="/action_page.php">
         <div class="container">
             <div class="row">
               <div class="col">
                 <select class="form-select form-select-lg mb-2" aria-label=".form-select-lg example">
-                    <option disabled selected>Comuna</option>
-                    {% for comuna in comunas %}
-                    <option>{{ comuna }}</li>
-                    {% endfor %}
+                
                 </select>
               </div>
               <div class="col">
                 <select class="form-select form-select-lg mb-2" aria-label=".form-select-lg example">
-                    <option disabled selected>Periodos</option>
-                    {% for periodo in periodos %}
-                    <option>{{ periodo }}</li>
-                    {% endfor %}
+                    <option selected>Periodo</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
                 </select>
               </div>
               <div class="col">
@@ -44,4 +41,4 @@
         </div>
     </form>
 </body>
-</html>
+</html> 

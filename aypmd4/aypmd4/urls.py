@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from aypmd4.views import welcome
 from aypmd4.views import homePage
+from aypmd4.views import detalleVista
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('welcome/',welcome),
     path('homePage',homePage),
+    path('homePage',homePage, name='busqueda')
 ]
