@@ -1,6 +1,7 @@
+from traceback import print_tb
 from django.http import HttpResponse
 from django.template import Template, Context
-from aypmd4 import aws_config
+from aypmd4 import aws_config, type_of_filter
 import time 
 import os
 
@@ -24,9 +25,18 @@ def homePage(request):
 def detalleVista(request):
     #data = aws_config.AthenaQuery("hola")
     template =  "detalleVista.htlm"
-    nombreComuna = request.GET["comuna"]
-    print(nombreComuna)
-    nombrePeriodo = request.GET["periodo"]
+    try:
+        nombreComuna = request.GET["comuna"]
+    except:
+        nombreComuna = ""
+
+    try:
+        nombrePeriodo = request.GET["periodo"]
+    except:
+        nombrePeriodo = ""
+    
+    query = type_of_filter.TypeOfFilter(nombreComuna,nombrePeriodo)
+    print(query)
     dir = os.path.join(BASE_DIR, 'aypmd4/templates/detalleVista.html')
     plantillaHomePage = open(dir)
     
