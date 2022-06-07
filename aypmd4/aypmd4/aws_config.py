@@ -56,13 +56,25 @@ for d in results['ResultSet']['Rows']:
 
 def toDic(result):
     dicc = {}
-    i =0;
+    i =0
     for d in result['ResultSet']['Rows']:
         lista = []
         for elem in d['Data']:
-            lista.append(elem['VarCharValue'])
+            if len(elem)  != 0:
+                lista.append(elem['VarCharValue'])
+            else:
+                lista.append('')
+        if i != 0:
+            if  (lista[5]) !='':                 
+                sup = float(lista[5])
+                precio = float(lista[1])
+                div = round(precio/sup,1)
+                lista.append(div)     
+            else:
+                lista.append("No puntuado")       
         dicc[i] = lista
         i+=1
+    dicc.pop(0)
     return dicc
 
 def AthenaQuery(query):
@@ -77,14 +89,15 @@ def AthenaQuery(query):
     )
     query_execution_id = athena_job_query['QueryExecutionId']
     athena_job_status_query = athena.get_query_execution(QueryExecutionId=query_execution_id)
-    time.sleep(6)
-    print("---SLEPEA 6 AEN aws_config.py---")
+    time.sleep(15)
+    print("---SLEPEA 15 AEN aws_config.py---")
     results = athena.get_query_results(QueryExecutionId=query_execution_id)
+    #print(results)
     dic = toDic(results)
+    #print(dic)
     return dic
 
 print("VEO EL DICT  Y LO MANIPULO")
-print(AthenaQuery())
 
 
 

@@ -11,9 +11,9 @@ def welcome(request):
     return HttpResponse("Pagina inicial")
 
 def homePage(request):
-    listaComunas = ["acund","la reina", "tester"] #cambiar
-    listaPeriodos = ["00", "01", "02"]
-    listaRegiones = ["ARICA", "METROPOL", "VALPARAISO"]
+    listaComunas = ["CURICO","LA REINA", "QUILPUE"] #cambiar
+    listaPeriodos = ["2-2019", "1-2017", "1-2020"]
+    listaRegiones = ["13", "14", "15"]
     query = type_of_filter.TypeOfFilter("","","")
     data = aws_config.AthenaQuery(query)
     dir = os.path.join(BASE_DIR, 'aypmd4/templates/homePage.html')
@@ -42,17 +42,20 @@ def detalleVista(request):
     except:
         nombreRegion = ""    
     
-    query = type_of_filter.TypeOfFilter(nombreComuna,nombrePeriodo)
+    listaComunas = ["CURICO","LA REINA", "QUILPUE"] #cambiar
+    listaPeriodos = ["2-2019", "1-2017", "1-2020"]
+    listaRegiones = ["13", "14", "15"]
+    query = type_of_filter.TypeOfFilter(nombreComuna,nombrePeriodo,nombreRegion)
     print(query)
     data = aws_config.AthenaQuery(query)
-    dir = os.path.join(BASE_DIR, 'aypmd4/templates/detalleVista.html')
+    dir = os.path.join(BASE_DIR, 'aypmd4/templates/homePage.html')
     plantillaHomePage = open(dir)
     print("NOMBRES--")
     print(nombreComuna)
     print(nombrePeriodo)
     template = Template(plantillaHomePage.read())
     plantillaHomePage.close()
-    contexto = Context({"comuna": nombreComuna, "periodo": nombrePeriodo, "region": nombreRegion})
+    contexto = Context({"comuna": nombreComuna, "periodo": nombrePeriodo, "region": nombreRegion,"comunas": listaComunas, "periodos": listaPeriodos, "regiones": listaRegiones, "data": data })
     documento = template.render(contexto)
     return HttpResponse(documento)    
 
