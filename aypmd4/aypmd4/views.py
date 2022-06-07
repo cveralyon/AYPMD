@@ -11,9 +11,9 @@ def welcome(request):
     return HttpResponse("Pagina inicial")
 
 def homePage(request):
-    listaComunas = ["CURICO","LA REINA", "QUILPUE"] #cambiar
-    listaPeriodos = ["2-2019", "1-2017", "1-2020"]
-    listaRegiones = ["13", "14", "15"]
+    listaComunas = aws_config.GetComunas() #cambiar
+    listaPeriodos = aws_config.GetPeriodo()
+    listaRegiones = aws_config.GetRegiones()
     query = type_of_filter.TypeOfFilter("","","")
     data = aws_config.AthenaQuery(query)
     dir = os.path.join(BASE_DIR, 'aypmd4/templates/homePage.html')
@@ -42,9 +42,9 @@ def detalleVista(request):
     except:
         nombreRegion = ""    
     
-    listaComunas = ["CURICO","LA REINA", "QUILPUE"] #cambiar
-    listaPeriodos = ["2-2019", "1-2017", "1-2020"]
-    listaRegiones = ["13", "14", "15"]
+    listaComunas = aws_config.GetComunas() #cambiar
+    listaPeriodos = aws_config.GetPeriodo()
+    listaRegiones = aws_config.GetRegiones()
     query = type_of_filter.TypeOfFilter(nombreComuna,nombrePeriodo,nombreRegion)
     print(query)
     data = aws_config.AthenaQuery(query)
@@ -73,8 +73,10 @@ def comparación(request):
     except:
         nombreComuna2 = ""
 
-    
-    listaComunas = ["CURICO","LA REINA", "QUILPUE"] #cambiar
+    query = type_of_filter.CreateQueryComparacion(nombreComuna1)
+    avgComuna1 = aws_config.AvgAvaluoFiscal(query)
+    query = type_of_filter.CreateQueryComparacion(nombreComuna2)
+    avgComuna2 = aws_config.AvgAvaluoFiscal(query)
     #listaPeriodos = ["2-2019", "1-2017", "1-2020"]
     #istaRegiones = ["13", "14", "15"]
     #query = type_of_filter.TypeOfFilter(nombreComuna,nombrePeriodo,nombreRegion)
@@ -87,7 +89,7 @@ def comparación(request):
     #print(nombrePeriodo)
     template = Template(plantillaHomePage.read())
     plantillaHomePage.close()
-    contexto = Context({"comuna1": nombreComuna1, "comuna2": nombreComuna2})
+    contexto = Context({"comuna1": nombreComuna1, "comuna2": nombreComuna2, "avgComuna1": avgComuna1, "avgComuna2": avgComuna2})
     documento = template.render(contexto)
     return HttpResponse(documento) 
 

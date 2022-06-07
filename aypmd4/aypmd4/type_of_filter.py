@@ -1,4 +1,7 @@
 
+from email import message
+
+
 def TypeOfFilter(comuna, periodo, region):
     message = ""
     if (comuna != "" and periodo != "" and region != ""):
@@ -17,4 +20,8 @@ def TypeOfFilter(comuna, periodo, region):
         message =  f"SELECT fija.periodo, fija.avaluo_fiscal, com.comuna , com.cod_region, sup_con.sup_terreno, sup.construcciones_generales, destino.descripcion_destino, destino.tipo from fija as fija LEFT JOIN codigo_comuna_region as com on fija.cod_com = com.cod_com left join superficie_suelo as sup_con on sup_con.cod_com = com.cod_com left join superficie_construida as sup on sup.cod_com = com.cod_com left join codigo_destino as destino on destino.cod_destino = fija.cod_destino WHERE com.comuna = '{comuna}' and sup.cod_mz = fija.cod_mz and sup.cod_pr = fija.cod_pr Limit 1000"
     else:
         message =  f"SELECT fija.periodo, fija.avaluo_fiscal, com.comuna , com.cod_region, sup_con.sup_terreno, sup.construcciones_generales, destino.descripcion_destino, destino.tipo from fija as fija LEFT JOIN codigo_comuna_region as com on fija.cod_com = com.cod_com left join superficie_suelo as sup_con on sup_con.cod_com = com.cod_com left join superficie_construida as sup on sup.cod_com = com.cod_com left join codigo_destino as destino on destino.cod_destino = fija.cod_destino WHERE  sup.cod_mz = fija.cod_mz and sup.cod_pr = fija.cod_pr Limit 1000"
+    return message
+
+def CreateQueryComparacion(comuna):
+    message = f"SELECT AVG(fija.avaluo_fiscal) from fija as fija left join codigo_comuna_region as cod on fija.cod_com = cod.cod_com WHERE cod.comuna = '{comuna}'"
     return message

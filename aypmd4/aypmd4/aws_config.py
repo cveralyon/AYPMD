@@ -99,8 +99,84 @@ def AthenaQuery(query):
 
 print("VEO EL DICT  Y LO MANIPULO")
 
+def ConvertToList(result):
+    comunas = []
+    for d in result['ResultSet']['Rows']:
+        for elem in d['Data']:
+            comunas.append(elem['VarCharValue'])
+    comunas.pop(0)
+    return comunas
 
+def GetComunas():
+    athena_job_query = athena.start_query_execution(
+        QueryString='SELECT DISTINCT comuna from codigo_comuna_region ASC',
+        QueryExecutionContext={
+            'Database': 'grupo4-database'
+        },
+        ResultConfiguration={
+            'OutputLocation': 's3://aypmd-grupo4/athena/'
+        }
+    )
+    query_execution_id = athena_job_query['QueryExecutionId']
+    athena_job_status_query = athena.get_query_execution(QueryExecutionId=query_execution_id)
+    time.sleep(5)
+    print("---SLEPEA 15 AEN aws_config.py---")
+    results = athena.get_query_results(QueryExecutionId=query_execution_id)
+    comunas = ConvertToList(results)
+    return comunas
 
+def GetPeriodo():
+    athena_job_query = athena.start_query_execution(
+        QueryString='SELECT DISTINCT periodo from fija ASC',
+        QueryExecutionContext={
+            'Database': 'grupo4-database'
+        },
+        ResultConfiguration={
+            'OutputLocation': 's3://aypmd-grupo4/athena/'
+        }
+    )
+    query_execution_id = athena_job_query['QueryExecutionId']
+    athena_job_status_query = athena.get_query_execution(QueryExecutionId=query_execution_id)
+    time.sleep(5)
+    print("---SLEPEA 15 AEN aws_config.py---")
+    results = athena.get_query_results(QueryExecutionId=query_execution_id)
+    periodos = ConvertToList(results)
+    return periodos
 
+def GetRegiones():
+    athena_job_query = athena.start_query_execution(
+        QueryString='SELECT DISTINCT cod_region from codigo_comuna_region ORDER BY cod_region ASC',
+        QueryExecutionContext={
+            'Database': 'grupo4-database'
+        },
+        ResultConfiguration={
+            'OutputLocation': 's3://aypmd-grupo4/athena/'
+        }
+    )
+    query_execution_id = athena_job_query['QueryExecutionId']
+    athena_job_status_query = athena.get_query_execution(QueryExecutionId=query_execution_id)
+    time.sleep(5)
+    print("---SLEPEA 15 AEN aws_config.py---")
+    results = athena.get_query_results(QueryExecutionId=query_execution_id)
+    regiones = ConvertToList(results)
+    return regiones
+
+def AvgAvaluoFiscal(query):
+    athena_job_query = athena.start_query_execution(
+        QueryString=query,
+        QueryExecutionContext={
+            'Database': 'grupo4-database'
+        },
+        ResultConfiguration={
+            'OutputLocation': 's3://aypmd-grupo4/athena/'
+        }
+    )
+    query_execution_id = athena_job_query['QueryExecutionId']
+    athena_job_status_query = athena.get_query_execution(QueryExecutionId=query_execution_id)
+    time.sleep(5)
+    print("---SLEPEA 15 AEN aws_config.py---")
+    results = athena.get_query_results(QueryExecutionId=query_execution_id)
+    avg = round(ConvertToList(results)[0],2)
+    return avg
 
 
