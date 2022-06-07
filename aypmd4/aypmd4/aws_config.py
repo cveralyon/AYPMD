@@ -28,7 +28,7 @@ def AthenaQuery(query):
     
 def CreateDicc(result):
     dicc = {}
-    i =0;
+    i =0
     for d in result['ResultSet']['Rows']:
         lista = []
         for elem in d['Data']:
