@@ -2,7 +2,9 @@ from django.http import HttpResponse
 from django.template import Template, Context
 from aypmd4 import aws_config
 import time 
+import os
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def welcome(request):
     return HttpResponse("Pagina inicial")
@@ -11,7 +13,8 @@ def homePage(request):
     listaComunas = ["acund","la reina", "tester"] #cambiar
     listaPeriodos = ["00", "01", "02"]
     data = aws_config.AthenaQuery()
-    plantillaHomePage = open("C:/Users/Chopan/Desktop/AYPMD/aypmd4/aypmd4/templates/homePage.html")
+    dir = os.path.join(BASE_DIR, 'aypmd4/templates/homePage.html')
+    plantillaHomePage = open(dir)
     template = Template(plantillaHomePage.read())
     plantillaHomePage.close()
     contexto = Context({"comunas": listaComunas, "periodos": listaPeriodos, "data": data })
@@ -21,10 +24,12 @@ def homePage(request):
 def detalleVista(request):
     #data = aws_config.AthenaQuery("hola")
     template =  "detalleVista.htlm"
-    nombreComuna = request.GET["c"]
+    nombreComuna = request.GET["comuna"]
     print(nombreComuna)
     nombrePeriodo = request.GET["periodo"]
-    plantillaHomePage = open("C:/Users/Chopan/Desktop/AYPMD/aypmd4/aypmd4/templates/detalleVista.html")
+    dir = os.path.join(BASE_DIR, 'aypmd4/templates/detalleVista.html')
+    plantillaHomePage = open(dir)
+    
     template = Template(plantillaHomePage.read())
     plantillaHomePage.close()
     contexto = Context({"comuna": nombreComuna, "periodo": nombrePeriodo})
