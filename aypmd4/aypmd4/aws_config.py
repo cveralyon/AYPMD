@@ -65,9 +65,9 @@ def toDic(result):
         i+=1
     return dicc
 
-def AthenaQuery():
+def AthenaQuery(query):
     athena_job_query = athena.start_query_execution(
-        QueryString='SELECT * from codigo_comuna_region LIMIT 10 ',
+        QueryString=query,
         QueryExecutionContext={
             'Database': 'grupo4-database'
         },

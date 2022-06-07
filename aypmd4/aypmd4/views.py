@@ -14,7 +14,8 @@ def homePage(request):
     listaComunas = ["acund","la reina", "tester"] #cambiar
     listaPeriodos = ["00", "01", "02"]
     listaRegiones = ["ARICA", "METROPOL", "VALPARAISO"]
-    data = aws_config.AthenaQuery()
+    query = type_of_filter.TypeOfFilter("","","")
+    data = aws_config.AthenaQuery(query)
     dir = os.path.join(BASE_DIR, 'aypmd4/templates/homePage.html')
     plantillaHomePage = open(dir)
     template = Template(plantillaHomePage.read())
@@ -24,7 +25,7 @@ def homePage(request):
     return HttpResponse(documento)
 
 def detalleVista(request):
-    #data = aws_config.AthenaQuery("hola")
+    
     template =  "detalleVista.htlm"
     try:
         nombreComuna = request.GET["comuna"]
@@ -43,6 +44,7 @@ def detalleVista(request):
     
     query = type_of_filter.TypeOfFilter(nombreComuna,nombrePeriodo)
     print(query)
+    data = aws_config.AthenaQuery(query)
     dir = os.path.join(BASE_DIR, 'aypmd4/templates/detalleVista.html')
     plantillaHomePage = open(dir)
     print("NOMBRES--")

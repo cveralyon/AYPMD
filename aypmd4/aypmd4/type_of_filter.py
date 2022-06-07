@@ -1,11 +1,20 @@
 
-def TypeOfFilter(comuna, periodo):
+def TypeOfFilter(comuna, periodo, region):
     message = ""
-    if (comuna != "" and periodo != ""):
-        message = f"SELECT * from fija LEFT OUTER JOIN codigo_comuna_region on fija.cod_com = codigo_comuna_region.cod_com WHERE codigo_comuna_region.comuna = 'ARICA' AND fija.periodo = '2-2019'"
-    elif comuna != "" and periodo == "":
-        message = f"SELECT * from fija LEFT OUTER JOIN codigo_comuna_region on fija.cod_com = codigo_comuna_region.cod_com WHERE codigo_comuna_region.comuna = 'ARICA'"
-    elif comuna == "" and periodo != "":
-        message = f"SELECT * from fija WHERE fija.periodo = '2-2019'"
-
+    if (comuna != "" and periodo != "" and region != ""):
+        message = f"SELECT fija.periodo, fija.avaluo_fiscal, com.comuna , com.cod_region, sup_con.sup_terreno, sup.construcciones_generales from fija as fija LEFT JOIN codigo_comuna_region as com on fija.cod_com = com.cod_com left join superficie_suelo as sup_con on sup_con.cod_com = com.cod_com left join superficie_construida as sup on sup.cod_com = com.cod_com  WHERE com.comuna = {comuna} AND fija.periodo = {periodo} AND com.cod_region = {region} and sup.cod_mz = fija.cod_mz and sup.cod_pr = fija.cod_pr Limit 1000"
+    elif comuna != "" and periodo == "" and region != "":
+        message =  f"SELECT fija.periodo, fija.avaluo_fiscal, com.comuna , com.cod_region, sup_con.sup_terreno, sup.construcciones_generales from fija as fija LEFT JOIN codigo_comuna_region as com on fija.cod_com = com.cod_com left join superficie_suelo as sup_con on sup_con.cod_com = com.cod_com left join superficie_construida as sup on sup.cod_com = com.cod_com  WHERE com.comuna = {comuna} AND com.cod_region = {region} and sup.cod_mz = fija.cod_mz and sup.cod_pr = fija.cod_pr Limit 1000"
+    elif comuna != "" and periodo != "" and region == "":
+        message =  f"SELECT fija.periodo, fija.avaluo_fiscal, com.comuna , com.cod_region, sup_con.sup_terreno, sup.construcciones_generales from fija as fija LEFT JOIN codigo_comuna_region as com on fija.cod_com = com.cod_com left join superficie_suelo as sup_con on sup_con.cod_com = com.cod_com left join superficie_construida as sup on sup.cod_com = com.cod_com  WHERE com.comuna = {comuna} AND fija.periodo = {periodo} and sup.cod_mz = fija.cod_mz and sup.cod_pr = fija.cod_pr Limit 1000"
+    elif comuna == "" and periodo != "" and region != "":
+        message = f"SELECT fija.periodo, fija.avaluo_fiscal, com.comuna , com.cod_region, sup_con.sup_terreno, sup.construcciones_generales from fija as fija LEFT JOIN codigo_comuna_region as com on fija.cod_com = com.cod_com left join superficie_suelo as sup_con on sup_con.cod_com = com.cod_com left join superficie_construida as sup on sup.cod_com = com.cod_com  WHERE fija.periodo = {periodo} AND com.cod_region = {region} and sup.cod_mz = fija.cod_mz and sup.cod_pr = fija.cod_pr Limit 1000"
+    elif comuna == "" and periodo != "" and region == "":
+        message =  f"SELECT fija.periodo, fija.avaluo_fiscal, com.comuna , com.cod_region, sup_con.sup_terreno, sup.construcciones_generales from fija as fija LEFT JOIN codigo_comuna_region as com on fija.cod_com = com.cod_com left join superficie_suelo as sup_con on sup_con.cod_com = com.cod_com left join superficie_construida as sup on sup.cod_com = com.cod_com  WHERE fija.periodo = {periodo} and sup.cod_mz = fija.cod_mz and sup.cod_pr = fija.cod_pr Limit 1000"
+    elif comuna == "" and periodo == "" and region != "":
+        message =  f"SELECT fija.periodo, fija.avaluo_fiscal, com.comuna , com.cod_region, sup_con.sup_terreno, sup.construcciones_generales from fija as fija LEFT JOIN codigo_comuna_region as com on fija.cod_com = com.cod_com left join superficie_suelo as sup_con on sup_con.cod_com = com.cod_com left join superficie_construida as sup on sup.cod_com = com.cod_com  WHERE com.cod_region = {region} and sup.cod_mz = fija.cod_mz and sup.cod_pr = fija.cod_pr Limit 1000"
+    elif comuna != "" and periodo == "" and region == "":
+        message =  f"SELECT fija.periodo, fija.avaluo_fiscal, com.comuna , com.cod_region, sup_con.sup_terreno, sup.construcciones_generales from fija as fija LEFT JOIN codigo_comuna_region as com on fija.cod_com = com.cod_com left join superficie_suelo as sup_con on sup_con.cod_com = com.cod_com left join superficie_construida as sup on sup.cod_com = com.cod_com  WHERE com.comuna = {comuna} and sup.cod_mz = fija.cod_mz and sup.cod_pr = fija.cod_pr Limit 1000"
+    else:
+        message =  f"SELECT fija.periodo, fija.avaluo_fiscal, com.comuna , com.cod_region, sup_con.sup_terreno, sup.construcciones_generales from fija as fija LEFT JOIN codigo_comuna_region as com on fija.cod_com = com.cod_com left join superficie_suelo as sup_con on sup_con.cod_com = com.cod_com left join superficie_construida as sup on sup.cod_com = com.cod_com  WHERE  sup.cod_mz = fija.cod_mz and sup.cod_pr = fija.cod_pr Limit 1000"
     return message
