@@ -17,18 +17,18 @@
         <div class="container">
             <div class="row">
               <div class="col">
-                <select name="c" class="form-select form-select-lg mb-2" aria-label=".form-select-lg example">
+                <select name="comuna" class="form-select form-select-lg mb-2" aria-label=".form-select-lg example">
                     <option disabled selected>Comuna</option>
                     {% for comuna in comunas %}
-                    <option name="comuna">{{ comuna }}</li>
+                    <option>{{ comuna }}</li>
                     {% endfor %}
                 </select>
               </div>
               <div class="col">
-                <select class="form-select form-select-lg mb-2" aria-label=".form-select-lg example">
+                <select name="periodo" class="form-select form-select-lg mb-2" aria-label=".form-select-lg example">
                     <option disabled selected>Periodos</option>
                     {% for periodo in periodos %}
-                    <option name="periodo">{{ periodo }}</li>
+                    <option>{{ periodo }}</li>
                     {% endfor %}
                 </select>
               </div>
