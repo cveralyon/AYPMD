@@ -78,12 +78,13 @@ def AthenaQuery():
     query_execution_id = athena_job_query['QueryExecutionId']
     athena_job_status_query = athena.get_query_execution(QueryExecutionId=query_execution_id)
     time.sleep(6)
-    print("slepea 6")
+    print("---SLEPEA 6 AEN aws_config.py---")
     results = athena.get_query_results(QueryExecutionId=query_execution_id)
     dic = toDic(results)
     return dic
 
-print(AthenaQuery())    
+print("VEO EL DICT  Y LO MANIPULO")
+print(AthenaQuery())
 
 
 

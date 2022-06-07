@@ -45,10 +45,15 @@
         </div>
     </form>
     {% for key, values in data.items %}
-      <h1>{{ key }}</h1>
-      {% for v in values %}
-      <td>{{v}}</td>
-      {% endfor %}
+    <div class="card border-success mb-3" style="max-width: 18rem;">
+      <div class="card-header bg-transparent border-success">Informacion</div>
+      <div class="card-body text-success">
+        <h5 class="card-title"></h5>
+        <p class="card-text">{{values}}.</p>
+      </div>
+      <div class="card-footer bg-transparent border-success">Avaluo fiscal: </div>
+      <div class="card-footer bg-transparent border-success">Periodo: </div>
+    </div>
     {% endfor %}
 </body>
 </html>
