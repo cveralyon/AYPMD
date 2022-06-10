@@ -19,10 +19,12 @@ from aypmd4.views import welcome
 from aypmd4.views import homePage
 from aypmd4.views import detalleVista
 from aypmd4.views import comparación
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',homePage),
     path('homePage/',detalleVista, name='busqueda'),
     path('detalleVista/',comparación, name='comparacion')
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
