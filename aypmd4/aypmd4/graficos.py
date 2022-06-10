@@ -1,24 +1,30 @@
 import matplotlib.pyplot as plt
 
-def graficoLineas(lista1, lista2):
-    plt.plot( lista1,lista2)
-    plt.title('algo en el titulo')
-    plt.xlabel('eje x')
-    plt.ylabel('ejey')
-    plt.savefig('graficoLineas.png')
-    
-def graficoBarras(lista1, lista2):
-    fig, pl = plt.subplots()
-    pl.set_ylabel('eje y')
-    pl.set_xlabel('eje x')
-    pl.set_title('algo en el titulo')
+def graficoLineasTipoSuelo(lista1, lista2):
+    fig, ax = plt.subplots()
+    ax.set_ylabel('Sup. Construida')
+    ax.set_xlabel('Tipo')
+    ax.set_title('Sup. Construida V/S Tipo')
     plt.bar(lista1, lista2)
-    plt.savefig('graficoBarras.png')
+    plt.savefig('graficoBarras.jpg')
+    plt.close()
     
-def graficoPuntos(lista1, lista2):
-    plt.plot(lista1, lista2, 'o', color="green", label="line 1")
-    plt.title('algo en el titulo')
-    plt.xlabel('eje x')
-    plt.ylabel('ejey')
+def graficoPuntosAvaluoFiscal(lista1, lista2):
+    plt.plot(lista1, lista2, 'o', color="green")
+    plt.title('Sup. Construida V/S Avaluo Fiscal')
+    plt.xlabel('Avaluo Fiscal')
+    plt.ylabel('Sup. Construida')
     plt.legend()
-    plt.savefig('graficoPuntos.png')
+    plt.savefig('graficoPuntosAvaluoFiscal.jpg')
+    plt.close()
+    
+def graficoPuntosSupTerreno(lista1, lista2):
+    plt.plot(lista1, lista2, 'o', color="orange")
+    plt.title('Sup. Construida V/S Sup. Terreno')
+    plt.xlabel('Sup. Terreno')
+    plt.ylabel('Sup. Construida')
+    plt.legend()
+    plt.savefig('graficoPuntosSupTerreno.jpg')
+    plt.close()
+
+    

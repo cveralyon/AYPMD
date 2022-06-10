@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link type="text/css" href='{% static "css/estilo.css" %}'rel='stylesheet'/>
 </head>
-<body>
+<body style="text-align: center;">
     <h1 class="titulo">Comparador</h1>
     <p> La comuna {{comuna1}} tiene un promedio de avaluo fiscal de : {{avgComuna1}} , en comparacion con la comuna {{comuna2}} que tiene un avaluo fiscal de : {{avgComuna2}} </p>
     <form action="{% url 'busqueda' %}">

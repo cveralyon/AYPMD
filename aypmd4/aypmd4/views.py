@@ -35,9 +35,25 @@ def graf(datos):
             linea[4]=1
         supconstru.append(float(linea[5]))
         supterreno.append(float(linea[4]))
-    print("supterreno", supterreno)
-    print("supconstru", supconstru)
-    graficos.graficoPuntos(supterreno, supconstru)
+    graficos.graficoPuntosSupTerreno(supterreno, supconstru)
+    supconstru = []
+    supterreno = []
+    for linea in datos.values():
+        if(linea[5]==''):
+            linea[5]=1
+        if(linea[1]==''):
+            linea[1]=1
+        supconstru.append(float(linea[5]))
+        supterreno.append(float(linea[1]))
+    graficos.graficoPuntosAvaluoFiscal(supterreno, supconstru)
+    supconstru = []
+    supterreno = []
+    for linea in datos.values():
+        if(linea[5]==''):
+            linea[5]=1
+        supconstru.append(float(linea[5]))
+        supterreno.append(linea[6])
+    graficos.graficoLineasTipoSuelo(supterreno, supconstru)
     
     
 def detalleVista(request):
