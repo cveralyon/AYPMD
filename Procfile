@@ -1,3 +1,3 @@
-web: gunicorn aypmd4.wsgi --log-file - --timeout 300
+web: gunicorn aypmd4.wsgi --timeout 600
 
 
