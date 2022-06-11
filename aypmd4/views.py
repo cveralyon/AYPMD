@@ -1,7 +1,7 @@
 from traceback import print_tb
 from django.http import HttpResponse
 from django.template import Template, Context
-from aypmd4 import aws_config, type_of_filter, graficos
+from aypmd4 import aws_config, type_of_filter
 import time 
 import os
 
@@ -16,7 +16,7 @@ def homePage(request):
     listaRegiones = aws_config.GetRegiones()
     query = type_of_filter.TypeOfFilter("","","")
     data = aws_config.AthenaQuery(query)
-    graf(data)
+    # graf(data)
     dir = os.path.join(BASE_DIR, 'aypmd4/templates/homePage.html')
     plantillaHomePage = open(dir)
     template = Template(plantillaHomePage.read())
