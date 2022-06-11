@@ -5,8 +5,6 @@
 ### Al final hice un proyecto python (django) que está en la carpeta aypmd se tienen que descargar/instalar las siguientes cosas:
     * django
     * aws para python (pip install boto3 'algo asi')
-    * pandas (pip install pandas)
-    * pyarrow (pip install pyarrow)
     
 
 
