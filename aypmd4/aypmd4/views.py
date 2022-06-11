@@ -25,35 +25,35 @@ def homePage(request):
     documento = template.render(contexto)
     return HttpResponse(documento)
 
-def graf(datos):
-    supconstru = []
-    supterreno = []
-    for linea in datos.values():
-        if(linea[5]==''):
-            linea[5]=1
-        if(linea[4]==''):
-            linea[4]=1
-        supconstru.append(float(linea[5]))
-        supterreno.append(float(linea[4]))
-    graficos.graficoPuntosSupTerreno(supterreno, supconstru)
-    supconstru = []
-    supterreno = []
-    for linea in datos.values():
-        if(linea[5]==''):
-            linea[5]=1
-        if(linea[1]==''):
-            linea[1]=1
-        supconstru.append(float(linea[5]))
-        supterreno.append(float(linea[1]))
-    graficos.graficoPuntosAvaluoFiscal(supterreno, supconstru)
-    supconstru = []
-    supterreno = []
-    for linea in datos.values():
-        if(linea[5]==''):
-            linea[5]=1
-        supconstru.append(float(linea[5]))
-        supterreno.append(linea[6])
-    graficos.graficoLineasTipoSuelo(supterreno, supconstru)
+# def graf(datos):
+#     supconstru = []
+#     supterreno = []
+#     for linea in datos.values():
+#         if(linea[5]==''):
+#             linea[5]=1
+#         if(linea[4]==''):
+#             linea[4]=1
+#         supconstru.append(float(linea[5]))
+#         supterreno.append(float(linea[4]))
+#     graficos.graficoPuntosSupTerreno(supterreno, supconstru)
+#     supconstru = []
+#     supterreno = []
+#     for linea in datos.values():
+#         if(linea[5]==''):
+#             linea[5]=1
+#         if(linea[1]==''):
+#             linea[1]=1
+#         supconstru.append(float(linea[5]))
+#         supterreno.append(float(linea[1]))
+#     graficos.graficoPuntosAvaluoFiscal(supterreno, supconstru)
+#     supconstru = []
+#     supterreno = []
+#     for linea in datos.values():
+#         if(linea[5]==''):
+#             linea[5]=1
+#         supconstru.append(float(linea[5]))
+#         supterreno.append(linea[6])
+#     graficos.graficoLineasTipoSuelo(supterreno, supconstru)
     
     
 def detalleVista(request):

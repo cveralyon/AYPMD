@@ -1,0 +1,50 @@
+.titulo {
+    color: blue;
+    text-align: center;
+    
+
+}
+body{
+    background-color:powderblue;
+
+}
+.form-busqueda{
+    z-index: 100;
+    margin-right: -20rem;
+}
+.div-con{
+    display: contents;
+    font-size: 180%;
+    
+}
+.entre-graf{
+    min-height: 2rem;
+
+}
+.img-responsive{
+    width: 100%;
+    height: auto;
+}
+.boton-modal{
+    z-index: 100;
+    margin-right: -20rem;
+}
+.lateral-bar{
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    height: fit-content;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10rem;
+
+}
+
+.wrapper {
+    text-align: center;
+    margin: 2em;
+}
+
+.buttonCentro {
+    position: absolute;
+    top: 50%;
+}
