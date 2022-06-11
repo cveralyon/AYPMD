@@ -1,3 +1,3 @@
-web: gunicorn aypmd4.wsgi --timeout 600
+web: gunicorn aypmd4.wsgi -t 400
 
 
