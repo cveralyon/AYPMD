@@ -1,3 +1,3 @@
-web: gunicorn aypmd4.wsgi -t 4000
+web: gunicorn -t 4000 aypmd4.wsgi 
 
 
