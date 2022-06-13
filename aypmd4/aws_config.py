@@ -169,7 +169,7 @@ def AvgAvaluoFiscal(query):
     )
     query_execution_id = athena_job_query['QueryExecutionId']
     athena_job_status_query = athena.get_query_execution(QueryExecutionId=query_execution_id)
-    time.sleep(8)
+    time.sleep(10)
     print("---SLEPEA 10 avaluo fiscalAEN aws_config.py---")
     results = athena.get_query_results(QueryExecutionId=query_execution_id)
     avg = round(float(ConvertToList(results)[0]),2)
