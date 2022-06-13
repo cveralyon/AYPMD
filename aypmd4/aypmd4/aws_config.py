@@ -1,8 +1,6 @@
 import sys
 import io
 import boto3
-import pandas as pd
-import pyarrow.parquet as pq
 from botocore.exceptions import ClientError
 import time
 
