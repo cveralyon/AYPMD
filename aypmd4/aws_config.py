@@ -115,7 +115,7 @@ def GetComunas():
     )
     query_execution_id = athena_job_query['QueryExecutionId']
     athena_job_status_query = athena.get_query_execution(QueryExecutionId=query_execution_id)
-    time.sleep(4)
+    time.sleep(5)
     print("---SLEPEA 15 AEN aws_config.py---")
     results = athena.get_query_results(QueryExecutionId=query_execution_id)
     comunas = ConvertToList(results)
@@ -133,7 +133,7 @@ def GetPeriodo():
     )
     query_execution_id = athena_job_query['QueryExecutionId']
     athena_job_status_query = athena.get_query_execution(QueryExecutionId=query_execution_id)
-    time.sleep(4)
+    time.sleep(5)
     print("---SLEPEA 15 AEN aws_config.py---")
     results = athena.get_query_results(QueryExecutionId=query_execution_id)
     periodos = ConvertToList(results)
@@ -151,7 +151,7 @@ def GetRegiones():
     )
     query_execution_id = athena_job_query['QueryExecutionId']
     athena_job_status_query = athena.get_query_execution(QueryExecutionId=query_execution_id)
-    time.sleep(4)
+    time.sleep(5)
     print("---SLEPEA 15 AEN aws_config.py---")
     results = athena.get_query_results(QueryExecutionId=query_execution_id)
     regiones = ConvertToList(results)

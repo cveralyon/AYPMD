@@ -1,30 +1,44 @@
-# import matplotlib.pyplot as plt
+import cufflinks as cf
+from IPython.display import display, HTML
+import plotly as py
+import chart_studio
+import plotly.graph_objects as go
 
-# def graficoLineasTipoSuelo(lista1, lista2):
-#     fig, ax = plt.subplots()
-#     ax.set_ylabel('Sup. Construida')
-#     ax.set_xlabel('Tipo')
-#     ax.set_title('Sup. Construida V/S Tipo')
-#     plt.bar(lista1, lista2)
-#     plt.savefig('graficoBarras.jpg')
-#     plt.close()
+
+cf.set_config_file(sharing = 'public' , theme='ggplot',  offline= True)
+
+def grafico_linea(data):
+    lineone = [go.Line(y=data.sup_terreno,x=data.index, name='Sup. del terreno')]
+    linetwo = [go.Line(y=data.sup_construida,x=data.index, name='Sup. construida')]
+    fig = go.Figure(data=lineone)
+    fig.add_traces(linetwo)
+    fig.show()
+    fig.write_html('./aypmd4/templates/terrenos.html')
+
+def grafico_avaluo(data):
+    lineone = [go.Line(y=data.avaluo,x=data.index, name='Avaluo')]
+    linetwo = [go.Bar(y=data.sup_terreno,x=data.index, name='Sup. del terreno')]
+    fig = go.Figure(data=lineone)
+    fig.add_traces(linetwo)
+    fig.show()
+    fig.write_html('./aypmd4/templates/avaluo.html')
     
-# def graficoPuntosAvaluoFiscal(lista1, lista2):
-#     plt.plot(lista1, lista2, 'o', color="green")
-#     plt.title('Sup. Construida V/S Avaluo Fiscal')
-#     plt.xlabel('Avaluo Fiscal')
-#     plt.ylabel('Sup. Construida')
-#     plt.legend()
-#     plt.savefig('graficoPuntosAvaluoFiscal.jpg')
-#     plt.close()
-    
-# def graficoPuntosSupTerreno(lista1, lista2):
-#     plt.plot(lista1, lista2, 'o', color="orange")
-#     plt.title('Sup. Construida V/S Sup. Terreno')
-#     plt.xlabel('Sup. Terreno')
-#     plt.ylabel('Sup. Construida')
-#     plt.legend()
-#     plt.savefig('graficoPuntosSupTerreno.jpg')
-#     plt.close()
+def grafico_tipo_terreno(data):
+    langs = []
+    dicc = {}
+    for i in data.tipo_terreno:
+        if i not in dicc:
+            dicc[i] = 1
+            langs.append(i)
+        else:
+            dicc[i] += 1
+    valores = []
+    for f in dicc:
+        valores.append(dicc[f])
+    trace = go.Pie(labels = langs, values = valores)
+    lineone = [trace]
+    fig = go.Figure(data=lineone)
+    fig.show()
+    fig.write_html('./aypmd4/templates/tipo.html')
 
     
