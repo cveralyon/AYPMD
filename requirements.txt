@@ -6,3 +6,6 @@ whitenoise
 matplotlib
 boto3
 pyarrow
+plotly
+cufflinks
+IPython

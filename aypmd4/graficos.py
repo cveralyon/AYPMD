@@ -2,7 +2,6 @@ import sys
 import cufflinks as cf
 from IPython.display import display, HTML
 import plotly as py
-import chart_studio
 import plotly.graph_objects as go
 
 
