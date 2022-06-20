@@ -1,6 +1,7 @@
 .titulo {
     color: blue;
     text-align: center;
+    margin-bottom: 1rem;
     
 
 }
@@ -8,10 +9,45 @@ body{
     background-color:powderblue;
 
 }
+.boton-modal{
+    display: flex;
+    flex-direction: row;
+}
+.col1{
+    margin-left: 0rem;
+    margin-right: 0rem;
+    padding-right: 0rem;
+    padding-left: 0rem;
+}
+.card{
+    width: 74rem;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.main-conteiner{
+    width: 50%;
+    max-width: 44rem;
+
+}
+.lateral-bar{
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    height: fit-content;
+    width: 49%;
+    margin-top: 2rem;
+}
+.row1{
+    max-width: 50%;
+}
 .form-busqueda{
     z-index: 100;
-    margin-right: -20rem;
+    margin-right: -38rem;
 }
+
 .div-con{
     display: contents;
     font-size: 180%;
@@ -21,23 +57,26 @@ body{
     min-height: 2rem;
 
 }
+.graficoscl{
+    width: 42rem;
+    height: 32rem;
+}
 .img-responsive{
     width: 100%;
     height: auto;
 }
-.boton-modal{
-    z-index: 100;
-    margin-right: -20rem;
-}
-.lateral-bar{
-    background-color: #f5f5f5;
-    border-radius: 5px;
-    height: fit-content;
-    padding: 10px;
-    margin-bottom: 10px;
-    margin-top: 10rem;
+.boton_modal{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
 }
+.btn{
+    max-height: 3rem;
+    margin: 2rem;
+    margin-left: 4rem;
+}
+
 
 .wrapper {
     text-align: center;

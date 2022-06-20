@@ -13,7 +13,7 @@ def grafico_linea(data):
     linetwo = [go.Line(y=data.sup_construida,x=data.index, name='Sup. construida')]
     fig = go.Figure(data=lineone)
     fig.add_traces(linetwo)
-    fig.show()
+    # fig.show()
     fig.write_html('./aypmd4/templates/terrenos.html')
 
 def grafico_avaluo(data):
@@ -21,7 +21,7 @@ def grafico_avaluo(data):
     linetwo = [go.Bar(y=data.sup_terreno,x=data.index, name='Sup. del terreno')]
     fig = go.Figure(data=lineone)
     fig.add_traces(linetwo)
-    fig.show()
+    # fig.show()
     fig.write_html('./aypmd4/templates/avaluo.html')
     
 def grafico_tipo_terreno(data):
@@ -39,7 +39,7 @@ def grafico_tipo_terreno(data):
     trace = go.Pie(labels = langs, values = valores)
     lineone = [trace]
     fig = go.Figure(data=lineone)
-    fig.show()
+    # fig.show()
     fig.write_html('./aypmd4/templates/tipo.html')
 
     

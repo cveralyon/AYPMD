@@ -27,12 +27,26 @@ def homePage(request):
     documento = template.render(contexto)
     return HttpResponse(documento)
 
-def grafico(request):
+def graficoTerrenos(request):
     dir = os.path.join(BASE_DIR, 'aypmd4/templates/terrenos.html')
     plantillaHomePage = open(dir)
     template = Template(plantillaHomePage.read())
     plantillaHomePage.close()
-    return HttpResponse()
+    return HttpResponse(template.render(Context()))
+
+def graficoAvaluo(request):
+    dir = os.path.join(BASE_DIR, 'aypmd4/templates/avaluo.html')
+    plantillaHomePage = open(dir)
+    template = Template(plantillaHomePage.read())
+    plantillaHomePage.close()
+    return HttpResponse(template.render(Context()))
+
+def graficoTipo(request):
+    dir = os.path.join(BASE_DIR, 'aypmd4/templates/tipo.html')
+    plantillaHomePage = open(dir)
+    template = Template(plantillaHomePage.read())
+    plantillaHomePage.close()
+    return HttpResponse(template.render(Context()))
 
 def graf(datos):
     sup_construida = []

@@ -17,7 +17,10 @@ from django.contrib import admin
 from django.urls import path
 from aypmd4.views import welcome
 from aypmd4.views import homePage
-from aypmd4.views import grafico
+from aypmd4.views import graficoTerrenos
+from aypmd4.views import graficoAvaluo
+from aypmd4.views import graficoTipo
+
 from aypmd4.views import detalleVista
 from aypmd4.views import comparación
 from django.conf import settings
@@ -26,7 +29,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',homePage),
-    path('terrenos', grafico),
+    path('terrenos/', graficoTerrenos),
+    path('avaluo/', graficoAvaluo),
+    path('tipo/', graficoTipo),
     path('homePage/',detalleVista, name='busqueda'),
     path('detalleVista/',comparación, name='comparacion')
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
