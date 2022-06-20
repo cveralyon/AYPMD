@@ -85,7 +85,7 @@ def AthenaQuery(query):
     )
     query_execution_id = athena_job_query['QueryExecutionId']
     athena_job_status_query = athena.get_query_execution(QueryExecutionId=query_execution_id)
-    time.sleep(13)
+    time.sleep(12)
     print("---SLEPEA 14 seg ----1---")
     results = athena.get_query_results(QueryExecutionId=query_execution_id)
     #print(results)
@@ -133,8 +133,8 @@ def GetPeriodo():
     )
     query_execution_id = athena_job_query['QueryExecutionId']
     athena_job_status_query = athena.get_query_execution(QueryExecutionId=query_execution_id)
-    time.sleep(5)
-    print("---SLEPEA 5 seg ----3---")
+    time.sleep(4)
+    print("---SLEPEA 4 seg ----3---")
     results = athena.get_query_results(QueryExecutionId=query_execution_id)
     periodos = ConvertToList(results)
     return periodos
@@ -170,7 +170,7 @@ def AvgAvaluoFiscal(query):
     query_execution_id = athena_job_query['QueryExecutionId']
     athena_job_status_query = athena.get_query_execution(QueryExecutionId=query_execution_id)
     time.sleep(8)
-    print("---SLEPEA 10 seg ----5---")
+    print("---SLEPEA 8 seg ----5---")
     results = athena.get_query_results(QueryExecutionId=query_execution_id)
     avg = round(float(ConvertToList(results)[0]),2)
     return avg
