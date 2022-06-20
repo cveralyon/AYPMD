@@ -85,7 +85,7 @@ def AthenaQuery(query):
     )
     query_execution_id = athena_job_query['QueryExecutionId']
     athena_job_status_query = athena.get_query_execution(QueryExecutionId=query_execution_id)
-    time.sleep(14)
+    time.sleep(13)
     print("---SLEPEA 14 seg ----1---")
     results = athena.get_query_results(QueryExecutionId=query_execution_id)
     #print(results)
@@ -169,7 +169,7 @@ def AvgAvaluoFiscal(query):
     )
     query_execution_id = athena_job_query['QueryExecutionId']
     athena_job_status_query = athena.get_query_execution(QueryExecutionId=query_execution_id)
-    time.sleep(10)
+    time.sleep(8)
     print("---SLEPEA 10 seg ----5---")
     results = athena.get_query_results(QueryExecutionId=query_execution_id)
     avg = round(float(ConvertToList(results)[0]),2)
