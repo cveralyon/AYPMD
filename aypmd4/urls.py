@@ -34,4 +34,4 @@ urlpatterns = [
     path('tipo/', graficoTipo),
     path('homePage/',detalleVista, name='busqueda'),
     path('detalleVista/',comparación, name='comparacion')
-] #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
